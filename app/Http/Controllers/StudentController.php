@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Student;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -11,9 +12,15 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        //
+        $data = Student::all();
+        return view('crud.index')->with('data', $data);
     }
 
     /**
