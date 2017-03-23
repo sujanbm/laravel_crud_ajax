@@ -19,7 +19,7 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
-    @yield('ajax_script')
+    @yield('script_src')
 </head>
 <body>
     <div id="app">
@@ -81,7 +81,7 @@
 
         @yield('content')
     </div>
-    @yield('scripts')
+    @yield('ajax_scripts')
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
