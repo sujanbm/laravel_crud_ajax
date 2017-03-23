@@ -9,7 +9,7 @@
                 <h4 class="modal-title">Add Record</h4>
             </div>
             <div class="modal-body">
-                <form action="{{ url('crud') }}" method="post">
+                <form action="{{ action('StudentController@store') }}" method="post">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <div class="form-group">
@@ -20,8 +20,15 @@
                             <label for="last_name">Last Name:</label>
                             <input type="text" class="form-control" id="last_name" name="last_name">
                         </div>
-                        <label for="email">Email address:</label>
-                        <input type="email" class="form-control" id="email" name="email">
+                        <div class="form-group">
+                            <label for="email">Email address:</label>
+                            <input type="email" class="form-control" id="email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="school">School Nmae:</label>
+                            <input type="text" class="form-control" id="school" name="school">
+                        </div>
+
                     </div>
 
                     <button type="submit" class="btn btn-default">Submit</button>

@@ -19,19 +19,19 @@ class StudentController extends Controller
 
     public function index()
     {
-        $data = Student::all();
-        return view('crud.index')->with('data', $data);
+        $students = Student::all();
+        return view('crud.index')->with('students', $students);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+//    /**
+//     * Show the form for creating a new resource.
+//     *
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function create()
+//    {
+//        //
+//    }
 
     /**
      * Store a newly created resource in storage.
@@ -41,7 +41,15 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $student = new Student;
+        $student->first_name = $request->first_name;
+        $student->last_name = $request->last_name;
+        $student->email = $request->email;
+        $student->school = $request->school;
+        if($student->save()){
+            return back()->with('success', 'Student Added Successfully');
+        }
+        return back()->with('success', 'Error Occured! Addition unsuccessful');
     }
 
     /**
@@ -52,7 +60,11 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        //
+        if ($request->ajax()) {
+            $id = $request->id;
+            $student = Student::findOrFail($id);
+
+        }
     }
 
     /**
@@ -61,10 +73,10 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
+//    public function edit($id)
+//    {
+//        //
+//    }
 
     /**
      * Update the specified resource in storage.

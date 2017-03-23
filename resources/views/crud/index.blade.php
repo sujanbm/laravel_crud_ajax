@@ -22,25 +22,27 @@
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
+                <th>School</th>
                 <th>Actions</th>
             </tr>
             </thead>
             <tbody>
-            @foreach($data as $x)
+            @foreach($students as $student)
                 <tr>
-                    <td>{{$x -> first_name}}</td>
-                    <td>{{$x -> last_name}}</td>
-                    <td>{{$x -> email}}</td>
+                    <td>{{$student -> first_name}}</td>
+                    <td>{{$student -> last_name}}</td>
+                    <td>{{$student -> email}}</td>
+                    <td>{{$student->school}}</td>
                     <td>
-                        <button class="btn btn-info" data-toggle="modal" data-target="#viewModal" onclick="fun_view('{{$x -> id}}')">View</button>
-                        <button class="btn btn-warning" data-toggle="modal" data-target="#editModal" onclick="fun_edit('{{$x -> id}}')">Edit</button>
-                        <button class="btn btn-danger" onclick="fun_delete('{{$x -> id}}')">Delete</button>
+                        <button class="btn btn-info" data-toggle="modal" data-target="#viewModal" onclick="fun_view('{{$student -> id}}')">View</button>
+                        <button class="btn btn-warning" data-toggle="modal" data-target="#editModal" onclick="fun_edit('{{$student -> id}}')">Edit</button>
+                        <button class="btn btn-danger" onclick="fun_delete('{{$student -> id}}')">Delete</button>
                     </td>
                 </tr>
             @endforeach
             </tbody>
         </table>
-        <input type="hidden" name="hidden_view" id="hidden_view" value="{{url('crud/view')}}">
+        <input type="hidden" name="hidden_view" id="hidden_view" value="{{action('StudentController@show')}}">
         <input type="hidden" name="hidden_delete" id="hidden_delete" value="{{url('crud/delete')}}">
         @include('crud.create_modal')
         @include('crud.view_modal')

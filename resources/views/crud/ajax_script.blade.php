@@ -11,6 +11,7 @@
                 $("#view_fname").text(result.first_name);
                 $("#view_lname").text(result.last_name);
                 $("#view_email").text(result.email);
+                $("#view_school").text(result.school);
             }
         });
     }

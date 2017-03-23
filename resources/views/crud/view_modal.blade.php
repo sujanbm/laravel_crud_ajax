@@ -11,7 +11,8 @@
             <div class="modal-body">
                 <p><b>First Name : </b><span id="view_fname" class="text-success"></span></p>
                 <p><b>Last Name : </b><span id="view_lname" class="text-success"></span></p>
-                <p><b>Email : </b><span id="view_email" class="text-success">bhaskar.panja@quadone.com</span></p>
+                <p><b>Email : </b><span id="view_email" class="text-success"></span></p>
+                <p><b>School : </b><span id="view_school" class="text-success"> </span></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal"></button>
