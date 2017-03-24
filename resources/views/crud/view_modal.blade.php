@@ -15,7 +15,7 @@
                 <p><b>School : </b><span id="view_school" class="text-success"> </span></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal"></button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
 

@@ -47,9 +47,9 @@ class StudentController extends Controller
         $student->email = $request->email;
         $student->school = $request->school;
         if($student->save()){
-            return back()->with('success', 'Student Added Successfully');
+            return back()->with('message', 'Student Added Successfully');
         }
-        return back()->with('success', 'Error Occured! Addition unsuccessful');
+        return back()->with('message', 'Error Occured! Addition unsuccessful');
     }
 
     /**
@@ -87,9 +87,18 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $id = $request->edit_id;
+        $student =  Student::findOrFail($id);
+        $student->first_name = $request->edit_first_name;
+        $student->last_name = $request->edit_last_name;
+        $student->email = $request->edit_email;
+        $student->school = $request->edit_school;
+        if($student->update()){
+            return back()->with('message', 'Record successfully updated');
+        }
+        return back()->with('message', 'Record not updated');
     }
 
     /**

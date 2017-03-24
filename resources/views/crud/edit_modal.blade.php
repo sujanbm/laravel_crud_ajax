@@ -9,7 +9,7 @@
                 <h4 class="modal-title">Edit</h4>
             </div>
             <div class="modal-body">
-                <form action="{{ url('crud/update') }}" method="post">
+                {!! Form::open(['method'=>'Put', 'action'=>'StudentController@update']) !!}
                     {{ csrf_field() }}
                     <div class="form-group">
                         <div class="form-group">
@@ -20,13 +20,19 @@
                             <label for="edit_last_name">Last Name:</label>
                             <input type="text" class="form-control" id="edit_last_name" name="edit_last_name">
                         </div>
-                        <label for="edit_email">Email address:</label>
-                        <input type="email" class="form-control" id="edit_email" name="edit_email">
+                        <div class="form-group">
+                            <label for="edit_email">Email address:</label>
+                            <input type="email" class="form-control" id="edit_email" name="edit_email">
+                        </div>
+                        <div class="form-group">
+                            <label for="edit_school">School:</label>
+                            <input type="text" class="form-control" id="edit_school" name="edit_school">
+                        </div>
                     </div>
 
                     <button type="submit" class="btn btn-default">Update</button>
                     <input type="hidden" id="edit_id" name="edit_id">
-                </form>
+                {!! Form::close() !!}
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

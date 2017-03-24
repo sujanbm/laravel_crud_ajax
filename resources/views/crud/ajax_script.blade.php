@@ -22,13 +22,14 @@
         $.ajax({
             url: view_url,
             type:"GET",
-            data: {"id":id},
+//            data: {"id":id},
             success: function(result){
                 //console.log(result);
                 $("#edit_id").val(result.id);
                 $("#edit_first_name").val(result.first_name);
                 $("#edit_last_name").val(result.last_name);
                 $("#edit_email").val(result.email);
+                $("#edit_school").val(result.school);
             }
         });
     }

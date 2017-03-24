@@ -19,5 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::resource('/student', 'StudentController', [
-    'except' => ['create', 'edit']
+    'except' => ['create', 'edit', 'update']
 ]);
+Route::put('/student', 'StudentController@update');
