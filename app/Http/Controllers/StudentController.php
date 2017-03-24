@@ -60,11 +60,13 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        if ($request->ajax()) {
-            $id = $request->id;
-            $student = Student::findOrFail($id);
-
-        }
+//        if ($request->ajax())
+//            $id = $request->id;
+//            $student = Student::findOrFail($id);
+//            return response()->json($student);
+//        }
+        $student = Student::findOrFail($id);
+        return response()->json($student);
     }
 
     /**

@@ -34,16 +34,17 @@
                     <td>{{$student -> email}}</td>
                     <td>{{$student->school}}</td>
                     <td>
-                        <button class="btn btn-info" data-toggle="modal" data-target="#viewModal" onclick="fun_view('{{$student -> id}}')">View</button>
+                        <button class="btn btn-info" data-toggle="modal" data-target="#viewModal" onclick="fun_view()">View</button>
                         <button class="btn btn-warning" data-toggle="modal" data-target="#editModal" onclick="fun_edit('{{$student -> id}}')">Edit</button>
                         <button class="btn btn-danger" onclick="fun_delete('{{$student -> id}}')">Delete</button>
                     </td>
                 </tr>
             @endforeach
             </tbody>
+            <input type="hidden" name="hidden_view" id="hidden_view" value="{{action('StudentController@show', [$student->id])}}">
+            <input type="hidden" name="hidden_delete" id="hidden_delete" value="{{url('crud/delete')}}">
         </table>
-        <input type="hidden" name="hidden_view" id="hidden_view" value="{{action('StudentController@show')}}">
-        <input type="hidden" name="hidden_delete" id="hidden_delete" value="{{url('crud/delete')}}">
+
         @include('crud.create_modal')
         @include('crud.view_modal')
         @include('crud.edit_modal')

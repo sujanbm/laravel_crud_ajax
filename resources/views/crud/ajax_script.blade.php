@@ -1,11 +1,11 @@
 <script type="text/javascript">
-    function fun_view(id)
+    function fun_view()
     {
         var view_url = $("#hidden_view").val();
         $.ajax({
             url: view_url,
             type:"GET",
-            data: {"id":id},
+//            data: {"id":id},
             success: function(result){
                 //console.log(result);
                 $("#view_fname").text(result.first_name);
