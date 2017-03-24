@@ -36,13 +36,14 @@
                     <td>
                         <button class="btn btn-info" data-toggle="modal" data-target="#viewModal" onclick="fun_view()">View</button>
                         <button class="btn btn-warning" data-toggle="modal" data-target="#editModal" onclick="fun_edit('{{$student -> id}}')">Edit</button>
-                        <button class="btn btn-danger" onclick="fun_delete('{{$student -> id}}')">Delete</button>
+                        <button class="btn btn-danger" onclick="fun_delete()">Delete</button>
                     </td>
                 </tr>
+                <input type="hidden" name="hidden_view" id="hidden_view" value="{{action('StudentController@show', [$student->id])}}">
+                <input type="hidden" name="hidden_delete" id="hidden_delete" value="{{action('StudentController@destroy', [$student->id])}}">
             @endforeach
             </tbody>
-            <input type="hidden" name="hidden_view" id="hidden_view" value="{{action('StudentController@show', [$student->id])}}">
-            <input type="hidden" name="hidden_delete" id="hidden_delete" value="{{url('crud/delete')}}">
+
         </table>
 
         @include('crud.create_modal')

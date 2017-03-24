@@ -34,7 +34,7 @@
         });
     }
 
-    function fun_delete(id)
+    function fun_delete()
     {
         var conf = confirm("Are you sure want to delete??");
         if(conf){
@@ -42,7 +42,7 @@
             $.ajax({
                 url: delete_url,
                 type:"POST",
-                data: {"id":id,_token: "{{ csrf_token() }}"},
+                data: {_token: "{{ csrf_token() }}", _method: "DELETE"},
                 success: function(response){
                     alert(response);
                     location.reload();

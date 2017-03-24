@@ -109,6 +109,12 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $student = Student::findOrFail($id);
+        if($response = $student->delete()){
+            echo 'Student Deleted Successfully';
+        }
+        else {
+            echo 'Delete unsuccessful';
+        }
     }
 }

@@ -9,7 +9,8 @@
                 <h4 class="modal-title">Add Record</h4>
             </div>
             <div class="modal-body">
-                <form action="{{ action('StudentController@store') }}" method="post">
+                {!! Form::open(['method'=>'Post', 'action'=>'StudentController@store']) !!}
+
                     {{ csrf_field() }}
                     <div class="form-group">
                         <div class="form-group">
@@ -32,7 +33,7 @@
                     </div>
 
                     <button type="submit" class="btn btn-default">Submit</button>
-                </form>
+                {!! Form::close() !!}
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
