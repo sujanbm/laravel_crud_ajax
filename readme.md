@@ -5,4 +5,4 @@
 * Create a database named `laravel_ajax`
 * Change the credentials of your database in env file to connect to mysql
 * Run php artisan migrate 
-* Either create a virtual host or go to `localhost/php-intern-task` in your browser
+* Run `php artisan serve' and go to `localhost:8000` or the one displayed in the terminal
